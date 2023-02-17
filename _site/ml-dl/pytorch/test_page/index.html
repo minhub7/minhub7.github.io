@@ -1,0 +1,847 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Test_page | Minhub</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Minho Kim">
+  
+  <meta property="article:author" content="Minho Kim">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Minhub">
+<meta property="og:title" content="Test_page">
+<meta property="og:url" content="http://localhost:4000/ml-dl/pytorch/test_page/">
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-07T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/ml-dl/pytorch/test_page/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Minho Kim",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Minhub Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;900&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.jpeg" alt="This is Minhub"></a>
+        
+        <a class="site-title" href="/">
+          This is Minhub
+          <span class="site-subtitle">Everything of development</span>
+        </a>
+        <ul class="visible-links">
+            
+            
+            <li class="masthead__menu-item">
+              <a href="/">Home</a>
+            </li>
+            
+            
+            
+              <li class="dropdown ">
+                <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories  <i class="fa fa-caret-down fa-sm" aria-hidden="true"></i><span class="caret"></span></a>
+
+                <ul class="dropdown-content" >
+                  
+                    <a class = "dropdown-item" href="/python/">    Python</a>
+                  
+                    <a class = "dropdown-item" href="/ml-dl/">    ML & DL</a>
+                  
+                    <a class = "dropdown-item" href="/algorithm/">    Algorithm</a>
+                  
+                    <a class = "dropdown-item" href="/dev-env/">    Develop environment</a>
+                  
+                </ul>
+              </li>
+            
+            
+            
+            <li class="masthead__menu-item">
+              <a href="/year-archive/">Archive</a>
+            </li>
+            
+            
+            
+            <li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li>
+            </ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Categories</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#ml-dl" itemprop="item"><span itemprop="name">Ml dl</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#pytorch" itemprop="item"><span itemprop="name">Pytorch</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Test_page</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+    
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/profile.jpeg" alt="Minho Kim" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Minho Kim</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Swimming in the sea of information. <br /><br /> <strong>Step by step</strong></p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/minhub7" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/mainho._" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+      
+      
+      
+      
+    
+
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Categories</label>
+  <hr/>
+  <ul class="nav__items">
+  <li>
+    
+    <span class="nav__title">🖋 Total posts: 8 </span>
+  </li>
+    
+      <li>
+        
+        
+          <a href="/python/"><span class="nav__sub-title">Python  (2)</span></a>
+        
+        
+        
+        <ul>
+          
+            
+            <li style="padding-left: 0.625rem;">
+              <a href="/python/basic/">- Basic (2)</a>
+            </li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+        
+          <a href="/ml-dl/"><span class="nav__sub-title">ML & DL  (2)</span></a>
+        
+        
+        
+        <ul>
+          
+            
+            <li style="padding-left: 0.625rem;">
+              <a href="/ml-dl/pytorch/">- Pytorch (2)</a>
+            </li>
+          
+            
+            <li style="padding-left: 0.625rem;">
+              <a href="/ml-dl/pytorch-lightning/">- Pytorch-lightning (0)</a>
+            </li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+        
+          <a href="/algorithm/"><span class="nav__sub-title">Algorithm  (1)</span></a>
+        
+        
+        
+        <ul>
+          
+            
+            <li style="padding-left: 0.625rem;">
+              <a href="/algorithm/programmers/">- Programmers (1)</a>
+            </li>
+          
+            
+            <li style="padding-left: 0.625rem;">
+              <a href="/algorithm/backjoon/">- Baekjoon (0)</a>
+            </li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+        
+          <a href="/dev-env/"><span class="nav__sub-title">Develop environment  (0)</span></a>
+        
+        
+        
+        <ul>
+          
+            
+            <li style="padding-left: 0.625rem;">
+              <a href="/dev-env/terminal/">- Terminal (0)</a>
+            </li>
+          
+            
+            <li style="padding-left: 0.625rem;">
+              <a href="/dev-env/Neovim/">- Neovim (0)</a>
+            </li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Test_page">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2023-01-07T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/ml-dl/pytorch/test_page/" class="u-url" itemprop="url">Test_page
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+          <!-- default: %B %-d, %Y-->
+        <time datetime="2023-01-07T00:00:00+09:00">Date: 2023.01.07.</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Table of contents</h4></header>
+              
+
+            </nav>
+          </aside>
+        
+        
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ml-dl" class="page__taxonomy-item p-category" rel="tag">ml-dl</a><span class="sep">, </span>
+    
+      <a href="/categories/#pytorch" class="page__taxonomy-item p-category" rel="tag">pytorch</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time class="dt-published" datetime="2023-01-07T00:00:00+09:00">2023.01.07.</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Test_page%20http%3A%2F%2Flocalhost%3A4000%2Fml-dl%2Fpytorch%2Ftest_page%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fml-dl%2Fpytorch%2Ftest_page%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fml-dl%2Fpytorch%2Ftest_page%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      <!-- 같은 카테고리의 post들을 담기 -->
+
+
+
+  
+  	
+  	
+  	
+  	
+  	
+
+
+
+  <nav class="pagination__posts">
+    
+      <a href="/ml-dl/pytorch/torch/" class="pagination__posts--pager">이전 글 &nbsp<span class="child">ml-dl samples</span></a>
+    
+    
+      <a href="#" class="pagination__posts--pager disabled">다음</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/main-teaser.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/programmers/algorithm_test/" rel="permalink">Algorithm samples
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+          <!-- default: %B %-d, %Y-->
+        <time datetime="2023-01-18T00:00:00+09:00">Date: 2023.01.18.</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">헤헤
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/main-teaser.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/test_page/" rel="permalink">Test_page
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+          <!-- default: %B %-d, %Y-->
+        <time datetime="2023-01-07T00:00:00+09:00">Date: 2023.01.07.</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/main-teaser.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ml-dl/pytorch/torch/" rel="permalink">ml-dl samples
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+          <!-- default: %B %-d, %Y-->
+        <time datetime="2023-01-05T00:00:00+09:00">Date: 2023.01.05.</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/main-teaser.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/logging_module/" rel="permalink">Logging_module
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+          <!-- default: %B %-d, %Y-->
+        <time datetime="2023-01-04T00:00:00+09:00">Date: 2023.01.04.</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+오늘은 디버깅시 유용하게 사용할 수 있는 logging 모듈에 대해 알아봅니다
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="mailto:minhub6@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+          <li><a href="https://github.com/minhub7" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/mainho._" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <!--  -->
+    <!--   <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li> -->
+    <!--  -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Minho Kim. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

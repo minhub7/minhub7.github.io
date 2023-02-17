@@ -1,0 +1,35 @@
+{% assign navigation = site.data.navigation[include.nav] %}
+
+<nav class="nav__list">
+  {% if page.sidebar.title %}<h3 class="nav__title" style="padding-left: 0;">{{ page.sidebar.title }}</h3>{% endif %}
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
+  <hr/>
+  <ul class="nav__items">
+  <li>
+    {% assign total = site.posts | size %}
+    <span class="nav__title">🖋 Total posts: {{ total }} </span>
+  </li>
+    {% for nav in navigation %}
+      <li>
+        {% assign posts = site.categories[nav.category] | size %}
+        {% if nav.url %}
+          <a href="{{ nav.url | relative_url }}"><span class="nav__sub-title">{{ nav.title }}  ({{ posts }})</span></a>
+        {% else %}
+          <span class="nav__sub-title">{{ nav.title }} ({{ posts }})</span>
+        {% endif %}
+        
+        {% if nav.children != null %}
+        <ul>
+          {% for child in nav.children %}
+            {% assign child_posts = site.categories[child.category] | size %}
+            <li style="padding-left: 0.625rem;">
+              <a href="{{ child.url | relative_url }}"{% if child.url == page.url %} class="active"{% endif %}>- {{ child.title }} ({{ child_posts }})</a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

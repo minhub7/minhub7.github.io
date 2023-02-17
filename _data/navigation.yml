@@ -1,0 +1,63 @@
+# main links
+main:
+  - title: "Home"
+    url: /
+  - title: "Categories"
+    sublinks:
+      - title: "Python"
+        url: /python/
+      - title: "ML & DL"
+        url: /ml-dl/
+      - title: "Algorithm"
+        url: /algorithm/
+      - title: "Develop environment"
+        url: /dev-env/
+  - title: "Archive"
+    url: /year-archive/
+  # - title: "Tags"
+  #   url: /tags/
+  - title: "About"
+    url: /about/
+
+docs:
+  - title: "Python"
+    url: "/python/"
+    category: python
+    children:
+      - title: "Basic"
+        url: "/python/basic/"
+        category: basic
+        
+  - title: "ML & DL"
+    url: "/ml-dl/"
+    category: ml-dl
+    children:
+      - title: "Pytorch"
+        url: "/ml-dl/pytorch/"
+        category: pytorch
+      - title: "Pytorch-lightning"
+        url: "/ml-dl/pytorch-lightning/"
+        category: pytorch-lightning
+ 
+  - title: "Algorithm"
+    url: "/algorithm/"
+    category: algorithm
+    children:
+      - title: "Programmers"
+        url: "/algorithm/programmers/"
+        category: programmers
+      - title: "Baekjoon"
+        url: "/algorithm/backjoon/"
+        category: backjoon
+
+  - title: Develop environment
+    url: "/dev-env/"
+    category: "dev-env"
+    children:
+      - title: "Terminal"
+        url: "/dev-env/terminal/"
+        category: terminal
+      - title: "Neovim"
+        url: "/dev-env/Neovim/"
+        category: neovim
+

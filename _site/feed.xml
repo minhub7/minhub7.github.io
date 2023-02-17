@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-17T21:03:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Minhub</title><subtitle>Step by step</subtitle><author><name>Minho Kim</name></author><entry><title type="html">Algorithm samples</title><link href="http://localhost:4000/algorithm/programmers/algorithm_test/" rel="alternate" type="text/html" title="Algorithm samples" /><published>2023-01-18T00:00:00+09:00</published><updated>2023-01-18T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/programmers/algorithm_test</id><content type="html" xml:base="http://localhost:4000/algorithm/programmers/algorithm_test/"><![CDATA[<p>헤헤</p>]]></content><author><name>Minho Kim</name></author><category term="algorithm" /><category term="programmers" /><category term="bfs" /><category term="dfs" /><summary type="html"><![CDATA[헤헤]]></summary></entry><entry><title type="html">Test_page</title><link href="http://localhost:4000/ml-dl/pytorch/test_page/" rel="alternate" type="text/html" title="Test_page" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/ml-dl/pytorch/test_page</id><content type="html" xml:base="http://localhost:4000/ml-dl/pytorch/test_page/"><![CDATA[]]></content><author><name>Minho Kim</name></author><category term="ml-dl" /><category term="pytorch" /><category term="python" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Test_page</title><link href="http://localhost:4000/test_page/" rel="alternate" type="text/html" title="Test_page" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/test_page</id><content type="html" xml:base="http://localhost:4000/test_page/"><![CDATA[]]></content><author><name>Minho Kim</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">ml-dl samples</title><link href="http://localhost:4000/ml-dl/pytorch/torch/" rel="alternate" type="text/html" title="ml-dl samples" /><published>2023-01-05T00:00:00+09:00</published><updated>2023-01-05T00:00:00+09:00</updated><id>http://localhost:4000/ml-dl/pytorch/torch</id><content type="html" xml:base="http://localhost:4000/ml-dl/pytorch/torch/"><![CDATA[]]></content><author><name>Minho Kim</name></author><category term="ml-dl" /><category term="pytorch" /><category term="torchvision" /><category term="torch" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Python] logging을 활용한 시스템 로그 출력</title><link href="http://localhost:4000/python/basic/logging_module/" rel="alternate" type="text/html" title="[Python] logging을 활용한 시스템 로그 출력" /><published>2023-01-04T00:00:00+09:00</published><updated>2023-01-04T00:00:00+09:00</updated><id>http://localhost:4000/python/basic/logging_module</id><content type="html" xml:base="http://localhost:4000/python/basic/logging_module/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p class="notice">오늘은 디버깅시 유용하게 사용할 수 있는 <strong>logging</strong> 모듈에 대해 알아봅니다</p>
+
+<h3 id="what-is-logging">What is logging?</h3>
+
+<p>로깅이란 <strong>소프트웨어가 실행될 때 발생하는 이벤트를 추적하는 수단</strong>으로, 특정 이벤트가 발생했음을 나타내기 위해 코드에 로깅 호출을 추가할 수 있으며, 이벤트는 가변 데이터 (이벤트마다 잠재적으로 다른 데이터)가 포함될 수 있는 메세지를 출력한다.</p>
+
+<h3 id="log-levels">Log levels</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>level</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DEBUG</td>
+      <td>프로그램 동작에 대한 상세 정보, 문제를 진단할때만 필요</td>
+    </tr>
+    <tr>
+      <td>INFO</td>
+      <td>예상대로 작동하는 지에 대한 Tracking 목적</td>
+    </tr>
+    <tr>
+      <td>WARNING</td>
+      <td>예상치 못한 일이 발생했거나 가까운 미래에 발생할 문제 (e.g, 디스크 공간 부족) 등에 대한 표시 <br />SW는 정상 작동</td>
+    </tr>
+    <tr>
+      <td>ERROR</td>
+      <td>소프트웨어가 일부 기능을 수행하지 못할 정도의 에러</td>
+    </tr>
+    <tr>
+      <td>CRITICAL</td>
+      <td>매우 심각한 에러, 프로그램 자체가 실행되지 않을 수 있음</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="basic-usage">Basic usage</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1"># create logger
+</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">getLogger</span><span class="p">()</span>
+
+<span class="c1"># 로그 출력 level 설정
+</span><span class="n">logger</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="c1"># log 출력 formmat 설정
+</span><span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span><span class="p">)</span>
+
+<span class="c1"># log 출력
+</span><span class="n">stream_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">stream_handler</span><span class="p">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stream_handler</span><span class="p">)</span>
+
+<span class="c1"># log를 파일에 출력
+</span><span class="n">file_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s">'my.log'</span><span class="p">)</span>
+<span class="n">file_handler</span><span class="p">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handler</span><span class="p">)</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ol>
+  <li>logging.getLogger(): 로거 생성
+    <ul>
+      <li>아무 파라미터를 입력하지 않을 시 root logger로 생성</li>
+      <li>이름 지정 시 해당 이름으로 logger 생성</li>
+      <li>임의의 이름으로 생성된 logger는 모두 root logger의 자손이 됨</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="general-use-in-ai-projects">General use in AI projects</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="o">&gt;&gt;</span> <span class="n">utils</span><span class="p">.</span><span class="n">py</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="c1"># update later
+</span></pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>Minho Kim</name></author><category term="python" /><category term="basic" /><category term="basic" /><category term="logging" /><category term="module" /><summary type="html"><![CDATA[Introduction 오늘은 디버깅시 유용하게 사용할 수 있는 logging 모듈에 대해 알아봅니다]]></summary></entry><entry><title type="html">Logging_module</title><link href="http://localhost:4000/logging_module/" rel="alternate" type="text/html" title="Logging_module" /><published>2023-01-04T00:00:00+09:00</published><updated>2023-01-04T00:00:00+09:00</updated><id>http://localhost:4000/logging_module</id><content type="html" xml:base="http://localhost:4000/logging_module/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p class="notice">오늘은 디버깅시 유용하게 사용할 수 있는 <strong>logging</strong> 모듈에 대해 알아봅니다</p>
+
+<h3 id="what-is-logging">What is logging?</h3>
+
+<p>로깅이란 <strong>소프트웨어가 실행될 때 발생하는 이벤트를 추적하는 수단</strong>으로, 특정 이벤트가 발생했음을 나타내기 위해 코드에 로깅 호출을 추가할 수 있으며, 이벤트는 가변 데이터 (이벤트마다 잠재적으로 다른 데이터)가 포함될 수 있는 메세지를 출력한다.</p>
+
+<h3 id="log-levels">Log levels</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>level</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DEBUG</td>
+      <td>프로그램 동작에 대한 상세 정보, 문제를 진단할때만 필요</td>
+    </tr>
+    <tr>
+      <td>INFO</td>
+      <td>예상대로 작동하는 지에 대한 Tracking 목적</td>
+    </tr>
+    <tr>
+      <td>WARNING</td>
+      <td>예상치 못한 일이 발생했거나 가까운 미래에 발생할 문제 (e.g, 디스크 공간 부족) 등에 대한 표시 <br />SW는 정상 작동</td>
+    </tr>
+    <tr>
+      <td>ERROR</td>
+      <td>소프트웨어가 일부 기능을 수행하지 못할 정도의 에러</td>
+    </tr>
+    <tr>
+      <td>CRITICAL</td>
+      <td>매우 심각한 에러, 프로그램 자체가 실행되지 않을 수 있음</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="basic-usage">Basic usage</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1"># create logger
+</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">getLogger</span><span class="p">()</span>
+
+<span class="c1"># 로그 출력 level 설정
+</span><span class="n">logger</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="c1"># log 출력 formmat 설정
+</span><span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span><span class="p">)</span>
+
+<span class="c1"># log 출력
+</span><span class="n">stream_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">stream_handler</span><span class="p">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stream_handler</span><span class="p">)</span>
+
+<span class="c1"># log를 파일에 출력
+</span><span class="n">file_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s">'my.log'</span><span class="p">)</span>
+<span class="n">file_handler</span><span class="p">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handler</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<ol>
+  <li>logging.getLogger(): 로거 생성
+    <ul>
+      <li>아무 파라미터를 입력하지 않을 시 root logger로 생성</li>
+      <li>이름 지정 시 해당 이름으로 logger 생성</li>
+      <li>임의의 이름으로 생성된 logger는 모두 root logger의 자손이 됨</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="general-use-in-ai-projects">General use in AI projects</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> <span class="n">utils</span><span class="p">.</span><span class="n">py</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="c1"># update later
+</span></code></pre></div></div>]]></content><author><name>Minho Kim</name></author><summary type="html"><![CDATA[Introduction 오늘은 디버깅시 유용하게 사용할 수 있는 logging 모듈에 대해 알아봅니다]]></summary></entry><entry><title type="html">sample_pages</title><link href="http://localhost:4000/python/basic/sample_page/" rel="alternate" type="text/html" title="sample_pages" /><published>2023-01-02T00:00:00+09:00</published><updated>2023-01-02T00:00:00+09:00</updated><id>http://localhost:4000/python/basic/sample_page</id><content type="html" xml:base="http://localhost:4000/python/basic/sample_page/"><![CDATA[]]></content><author><name>Minho Kim</name></author><category term="python" /><category term="basic" /><category term="python" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Sample_page</title><link href="http://localhost:4000/sample_page/" rel="alternate" type="text/html" title="Sample_page" /><published>2023-01-02T00:00:00+09:00</published><updated>2023-01-02T00:00:00+09:00</updated><id>http://localhost:4000/sample_page</id><content type="html" xml:base="http://localhost:4000/sample_page/"><![CDATA[]]></content><author><name>Minho Kim</name></author><summary type="html"><![CDATA[]]></summary></entry></feed>

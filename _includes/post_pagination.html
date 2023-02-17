@@ -1,0 +1,32 @@
+<!-- 같은 카테고리의 post들을 담기 -->
+{% assign cat = page.categories[0] %}
+{% assign cat_list = site.categories[cat] %}
+{% for post in cat_list %}
+  {% if post.url == page.url %}
+  	{% assign prevIndex = forloop.index0 | minus: 1 %}
+  	{% assign nextIndex = forloop.index0 | plus: 1 %}
+  	{% if forloop.first == false %}
+  	  {% assign nexts = cat_list[prevIndex] %}
+  	{% endif %}
+  	{% if forloop.last == false %}
+  	  {% assign prevs = cat_list[nextIndex] %}
+  	{% endif %}
+  	{% break %}
+  {% endif %}
+{% endfor %}
+
+
+{% if prevs or nexts %}
+  <nav class="pagination__posts">
+    {% if prevs %}
+      <a href="{{ prevs.url }}" class="pagination__posts--pager">이전 글 &nbsp<span class="child">{{ prevs.title }}</span></a>
+    {% else %}
+      <a href="#" class="pagination__posts--pager disabled">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
+    {% endif %}
+    {% if nexts %}
+      <a href="{{ nexts.url }}" class="pagination__posts--pager">다음 글 &nbsp<span class="child">{{ nexts.title }}</span></a>
+    {% else %}
+      <a href="#" class="pagination__posts--pager disabled">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
+    {% endif %}
+  </nav>
+{% endif %}
