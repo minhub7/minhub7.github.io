@@ -1,4 +1,4 @@
-# minhub.github.io
+# minhub7.github.io
 
 This blog is a technology blog about machine learning, artificial intelligence, and python.  
 
